@@ -69,6 +69,7 @@ class Level:
                     player.direction.y = 0
                 elif player.direction.y < 0:
                     player.rect.top = sprite.rect.bottom
+                    player.direction.y = 0
 
     def run(self):
         # Level Tiles
