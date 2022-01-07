@@ -60,14 +60,15 @@ class Level:
 
     def vertical_movement_collision(self):
         player = self.player.sprite
-        player.rect.y += player.direction.y * player.speed
+        player.apply_gravity()
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                if player.direction.y < 0:
-                    player.rect.top = sprite.rect.bottom
-                elif player.direction.y > 0:
+                if player.direction.y > 0:
                     player.rect.bottom = sprite.rect.top
+                    player.direction.y = 0
+                elif player.direction.y < 0:
+                    player.rect.top = sprite.rect.bottom
 
     def run(self):
         # Level Tiles
