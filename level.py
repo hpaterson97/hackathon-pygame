@@ -36,4 +36,5 @@ class Level:
         self.tiles.draw(self.display_surface)
 
         # Level Player
+        self.player.update()
         self.player.draw(self.display_surface)
